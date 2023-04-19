@@ -63,7 +63,7 @@ namespace ProjectICT
             SchrijfTxtInList();
             //Voeg een extra optie toe aan de combobox
             cbxPortName.Items.Add("None");
-
+            rectVoorbeeldPlayer.Fill = playerImage;
             //Zet de compoorts erin
             foreach (string s in SerialPort.GetPortNames())
                 cbxPortName.Items.Add(s);
@@ -75,19 +75,26 @@ namespace ProjectICT
             // laat de game timer elke 20ms tikken
             gameTimer.Interval = TimeSpan.FromMilliseconds(20);
 
-            achtergrondImage.ImageSource = new BitmapImage(new Uri("C:\\Users\\brech\\source\\repos\\Project ict\\Project ict\\Afbeeldingen\\background.gif"));
+            string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Afbeeldingen/background.gif");
+            achtergrondImage.ImageSource = new BitmapImage(new Uri(imagePath));
+
             // Voeg de achtergrond toe
             rectAchtergrond.Fill = achtergrondImage;
             rectAchtergrond2.Fill = achtergrondImage;
 
-            obstakelImage.ImageSource = new BitmapImage(new Uri("C:\\Users\\brech\\source\\repos\\Project ict\\Project ict\\Afbeeldingen\\obstakel.png"));
+            string imagePath1 = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Afbeeldingen/obstakel.png");
+            obstakelImage.ImageSource = new BitmapImage(new Uri(imagePath1));
+
             rectVoorbeeldObstakel.Fill = obstakelImage;
 
-            coinImage.ImageSource = new BitmapImage(new Uri("C:\\Users\\brech\\source\\repos\\Project ict\\Project ict\\Afbeeldingen\\coin.gif"));
+            string imagePath2 = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Afbeeldingen/coin.gif");
+            coinImage.ImageSource = new BitmapImage(new Uri(imagePath2));
+
             rectVoorbeeldCoin.Fill = coinImage;
 
-            playerImage.ImageSource = new BitmapImage(new Uri("E:\\Downloads\\Afgewerkt Project ICT - Brecht Craeynest (1)\\Project ict\\Project ict\\Afbeeldingen\\Run (1)2.png"));
-            rectVoorbeeldPlayer.Fill = playerImage;
+            string imagePath3 = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Afbeeldingen/Run (1)2.png");
+            playerImage.ImageSource = new BitmapImage(new Uri(imagePath3));
+
         }
 
         private void Canvas_KeyDown(object sender, KeyEventArgs e)
@@ -109,7 +116,9 @@ namespace ProjectICT
                 springen = true;
                 snelheid = 15;
                 zwaartekracht = -12;
-                playerImage.ImageSource = new BitmapImage(new Uri("C:\\Users\\brech\\source\\repos\\Project ict\\Project ict\\Afbeeldingen\\Jump (4).png"));
+                string imagePath4 = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Afbeeldingen/Jump (4).png");
+                playerImage.ImageSource = new BitmapImage(new Uri(imagePath4));
+
             }
         }
 
@@ -165,6 +174,8 @@ namespace ProjectICT
 
             //Zet gameover als onzichtbaar  
             lblGameOver.Visibility = Visibility.Hidden;
+            stkpnlGameoverScore.Visibility = Visibility.Hidden;
+            scoresList.Visibility = Visibility.Hidden;
 
             Canvas.SetLeft(rectAchtergrond, 0); // Zet de eerste achtergrond op een afstand van 0
             Canvas.SetLeft(rectAchtergrond2, 1262); // Zet de 2de achtergrond op een afstand van 1262
@@ -183,10 +194,14 @@ namespace ProjectICT
 
             loopImage(1);
 
-            obstakelImage.ImageSource = new BitmapImage(new Uri("C:\\Users\\brech\\source\\repos\\Project ict\\Project ict\\Afbeeldingen\\obstakel.png"));
+            string imagePath5 = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Afbeeldingen/obstakel.png");
+            obstakelImage.ImageSource = new BitmapImage(new Uri(imagePath5));
+
             rectObstakel.Fill = obstakelImage;
 
-            coinImage.ImageSource = new BitmapImage(new Uri("C:\\Users\\brech\\source\\repos\\Project ict\\Project ict\\Afbeeldingen\\coin.gif"));
+            string imagePath6 = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Afbeeldingen/coin.gif");
+            coinImage.ImageSource = new BitmapImage(new Uri(imagePath6));
+
             rectCoin.Fill = coinImage;
             rectCoin2.Fill = coinImage;
 
@@ -205,6 +220,7 @@ namespace ProjectICT
             serialPort.WriteLine($" S:{score.Tonen()} C:{coins.Tonen()} L:{levens}");
             // Start de game timer 
             gameTimer.Start();
+
         }
 
         private void loopImage(double i)
@@ -213,28 +229,44 @@ namespace ProjectICT
             {
 
                 case 1:
-                    playerImage.ImageSource = new BitmapImage(new Uri("C:\\Users\\brech\\source\\repos\\Project ict\\Project ict\\Afbeeldingen\\Run (1)2.png"));
+                    string imagePath7 = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Afbeeldingen/Run (1)2.png");
+                    playerImage.ImageSource = new BitmapImage(new Uri(imagePath7));
+
                     break;
                 case 2:
-                    playerImage.ImageSource = new BitmapImage(new Uri("C:\\Users\\brech\\source\\repos\\Project ict\\Project ict\\Afbeeldingen\\Run (2)2.png"));
+                    string imagePath8 = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Afbeeldingen/Run (2)2.png");
+                    playerImage.ImageSource = new BitmapImage(new Uri(imagePath8));
+
                     break;
                 case 3:
-                    playerImage.ImageSource = new BitmapImage(new Uri("C:\\Users\\brech\\source\\repos\\Project ict\\Project ict\\Afbeeldingen\\Run (3)2.png"));
+                    string imagePath9 = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Afbeeldingen/Run (3)2.png");
+                    playerImage.ImageSource = new BitmapImage(new Uri(imagePath9));
+
                     break;
                 case 4:
-                    playerImage.ImageSource = new BitmapImage(new Uri("C:\\Users\\brech\\source\\repos\\Project ict\\Project ict\\Afbeeldingen\\Run (4)2.png"));
+                    string imagePath10 = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Afbeeldingen/Run (4)2.png");
+                    playerImage.ImageSource = new BitmapImage(new Uri(imagePath10));
+
                     break;
                 case 5:
-                    playerImage.ImageSource = new BitmapImage(new Uri("C:\\Users\\brech\\source\\repos\\Project ict\\Project ict\\Afbeeldingen\\Run (5)2.png"));
+                    string imagePath11 = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Afbeeldingen/Run (5)2.png");
+                    playerImage.ImageSource = new BitmapImage(new Uri(imagePath11));
+
                     break;
                 case 6:
-                    playerImage.ImageSource = new BitmapImage(new Uri("C:\\Users\\brech\\source\\repos\\Project ict\\Project ict\\Afbeeldingen\\Run (6)2.png"));
+                    string imagePath12 = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Afbeeldingen/Run (6)2.png");
+                    playerImage.ImageSource = new BitmapImage(new Uri(imagePath12));
+
                     break;
                 case 7:
-                    playerImage.ImageSource = new BitmapImage(new Uri("C:\\Users\\brech\\source\\repos\\Project ict\\Project ict\\Afbeeldingen\\Run (7)2.png"));
+                    string imagePath13 = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Afbeeldingen/Run (7)2.png");
+                    playerImage.ImageSource = new BitmapImage(new Uri(imagePath13));
+
                     break;
                 case 8:
-                    playerImage.ImageSource = new BitmapImage(new Uri("C:\\Users\\brech\\source\\repos\\Project ict\\Project ict\\Afbeeldingen\\Run (8)2.png"));
+                    string imagePath14 = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Afbeeldingen/Run (8)2.png");
+                    playerImage.ImageSource = new BitmapImage(new Uri(imagePath14));
+
                     break;
 
             }
@@ -406,8 +438,16 @@ namespace ProjectICT
                 lblGameOver.Content = $"GAME OVER";
                 lblGameOver.Visibility = Visibility.Visible;
 
-                playerImage.ImageSource = new BitmapImage(new Uri("C:\\Users\\brech\\source\\repos\\Project ict\\Project ict\\Afbeeldingen\\Dead (10).png"));
+                string imagePath15 = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Afbeeldingen/Dead (10).png");
+                playerImage.ImageSource = new BitmapImage(new Uri(imagePath15));
+
                 rectPlayer.Fill = playerImage;
+
+                scoresList.Visibility = Visibility.Visible;
+                stkpnlGameoverScore.Visibility = Visibility.Visible;
+                lblScoreScore.Content = $"Score: {score.Tonen()}";
+
+
             }
 
             else
@@ -422,19 +462,23 @@ namespace ProjectICT
         private void btnHighscores_Click(object sender, RoutedEventArgs e)
         {
             grdHighscore.Visibility = Visibility.Visible;
+            scoresList.Visibility = Visibility.Visible;
         }
 
         private void btnTerugStartscherm_Click(object sender, RoutedEventArgs e)
         {
             grdHighscore.Visibility = Visibility.Hidden;
+            scoresList.Visibility = Visibility.Hidden;
         }
 
         private void btnScoreToevoegen_Click(object sender, RoutedEventArgs e)
         {
             string name = txtbxNaam.Text;
             int score = 0;
-            if (!string.IsNullOrEmpty(name) && int.TryParse(txtbxScore.Text, out score))
+            try
             {
+                if (!string.IsNullOrEmpty(name) && int.TryParse(txtbxScore.Text, out score))
+                {
                 // Create a new ScoreOpslaan object and add it to the scores list
                 ScoreOpslaan scoreOpslaan = new ScoreOpslaan(name, score);
                 scores.Add(scoreOpslaan);
@@ -451,11 +495,17 @@ namespace ProjectICT
                 // Clear text boxes
                 txtbxNaam.Clear();
                 txtbxScore.Clear();
-            }
-            else
-            {
+                }
+                else
+                {
                 MessageBox.Show("Please enter a valid name and score.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Fout bij opslaan van scores en naam: {ex.Message}");
+            }
+
         }
 
         private void SchrijfTxtInList()
@@ -517,6 +567,36 @@ namespace ProjectICT
             {
                 lblTopScore.Content = "";
             }
+        }
+
+        private void btnScoreToevoegen2_Click(object sender, RoutedEventArgs e)
+        {
+            string name = txtbxScoreNaam.Text;
+            int score1 = Convert.ToInt32( score.Tonen());
+            try
+            {
+                // Create a new ScoreOpslaan object and add it to the scores list
+                ScoreOpslaan scoreOpslaan = new ScoreOpslaan(name, score1);
+                scores.Add(scoreOpslaan);
+
+                // Sort scores by score in descending order
+                scores = scores.OrderByDescending(x => x.Score).ToList();
+
+                // Update the scores list on the UI
+                UpdateList();
+
+                // Save scores to file
+                SlaOpInTxt();
+
+                // Clear text boxes
+                txtbxScoreNaam.Clear();
+                stkpnlGameoverScore.Visibility = Visibility.Hidden;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Fout bij opslaan van scores en Naam: {ex.Message}");
+            }
+
         }
     }
 }

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Project_ict.ScoreOpslaan">
+    <Position X="6.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ScoreOpslaan.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project_ict.Score">
+    <Position X="6.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAgAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Score.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project_ict.Powerup">
+    <Position X="8.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAgAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Powerup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project_ict.Coins">
+    <Position X="8.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Coins.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

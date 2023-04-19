@@ -23,35 +23,44 @@
                 <Label Name="lblScoreText" FontSize="22" FontWeight="Bold" Content="Score: 0" />
                 <Label Name="lblCoinsText" FontSize="22" FontWeight="Bold" Content="Coins: 0" Canvas.Top="30" />
                 <Label Name="lblLevens" FontSize="22" FontWeight="Bold" Content="Levens: 0" Canvas.Top="55" />
-                <Label Name="lblGameOver" FontSize="60" FontWeight="Bold" Content="GAME OVER" Canvas.Left="221" Canvas.Top="180" />
+                <Label Name="lblGameOver" FontSize="60" FontWeight="Bold" Content="GAME OVER" Canvas.Left="211" Canvas.Top="-11" HorizontalAlignment="Center" VerticalAlignment="Center" />
 
             </Canvas>
         </GroupBox>
 
+        <StackPanel Margin="550,100,0,0" Name="stkpnlGameoverScore" Visibility="Hidden">
+            <Label Width="200" Content="Geef je naam in!" FontSize="14"></Label>
+            <TextBox Text="..." FontSize="14" Name="txtbxScoreNaam"></TextBox>
+            <Label Content="Je score: " Name="lblScoreScore"></Label>
+            <Button Content="Voeg toe aan het scorebord!" Name="btnScoreToevoegen2" Click="btnScoreToevoegen2_Click"></Button>
+        </StackPanel>
+        
+        <Canvas Visibility="Visible">
+            <GroupBox Header="Kies je poort" HorizontalAlignment="Left" Canvas.Left="10" Width="770" VerticalAlignment="Top" Height="56" Canvas.Top="10" Name="gbxPoort">
+                <ComboBox Name="cbxPortName" SelectionChanged="cbxPortName_SelectionChanged" Visibility="Visible"></ComboBox>
+            </GroupBox>
+            <GroupBox Header="Start het spel" HorizontalAlignment="Center" Canvas.Left="10" Width="770" VerticalAlignment="Top" Height="97" Canvas.Top="66" Name="gbxStart">
+                <StackPanel>
+                    <Button Name="btnStartGame" Click="Startgame_Click" Content="Start Game" FontSize="25"></Button>
+                    <Button Name="btnHighscores" Click="btnHighscores_Click" Content="Bekijk Highscores" FontSize="25"></Button>
+                </StackPanel>
+            </GroupBox>
 
-        <GroupBox Header="Kies je poort" HorizontalAlignment="Left" Canvas.Left="10" Width="770" VerticalAlignment="Top" Height="56" Canvas.Top="10" Name="gbxPoort">
-            <ComboBox Name="cbxPortName" SelectionChanged="cbxPortName_SelectionChanged" Visibility="Visible"></ComboBox>
-        </GroupBox>
-        <GroupBox Header="Start het spel" HorizontalAlignment="Center" Canvas.Left="10" Width="770" VerticalAlignment="Top" Height="97" Canvas.Top="66" Name="gbxStart">
-            <StackPanel>
-                <Button Name="btnStartGame" Click="Startgame_Click" Content="Start Game" FontSize="25"></Button>
-                <Button Name="btnHighscores" Click="btnHighscores_Click" Content="Bekijk Highscores" FontSize="25"></Button>
-            </StackPanel>
-        </GroupBox>
+            <Label Name="lblcontrols" Height="61" Width="440" FontWeight="Bold"  Content="Duw op spatie om te springen" FontSize="30" Canvas.Left="180" Canvas.Top="163" HorizontalAlignment="Left" VerticalAlignment="Center" Visibility="Visible"></Label>
+            <GroupBox Header="Elementen in het spel" Canvas.Left="10" Canvas.Top="225" Height="184" Width="770" HorizontalAlignment="Center" VerticalAlignment="Top" Name="gbxTutorial">
+                <Grid>
+                    <Rectangle Name="rectVoorbeeldCoin" Width="40" Fill="Gold" Visibility="Visible" Stroke="Black" Margin="10,10,708,112"/>
+                    <Rectangle Name="rectVoorbeeldObstakel" Width="40" Fill="Red" Visibility="Visible" Stroke="Black" Margin="10,54,708,53" RenderTransformOrigin="0.365,0.502" />
+                    <Rectangle Name="rectVoorbeeldPlayer" Width="40" Fill="Orange" Visibility="Visible" Stroke="Black" Margin="10,113,708,10" />
+                    <Label Content="Dit is een coin, raap deze op om toe te voegen aan het coin totaal" Margin="65,10,0,102" FontSize="23"></Label>
+                    <Label Content="Dit is een obstakel, raak deze niet aan!" Margin="65,64,0,47" FontSize="23"></Label>
+                    <Label Content="Dit is de player, zorg dat hij niet doodgaat!" Margin="65,114,0,5" FontSize="23"></Label>
+                </Grid>
 
-        <Label Name="lblcontrols" Height="61" Width="440" FontWeight="Bold"  Content="Duw op spatie om te springen" FontSize="30" Canvas.Left="180" Canvas.Top="163" HorizontalAlignment="Left" VerticalAlignment="Center" Visibility="Visible"></Label>
-        <GroupBox Header="Elementen in het spel" Canvas.Left="10" Canvas.Top="225" Height="184" Width="770" HorizontalAlignment="Center" VerticalAlignment="Top" Name="gbxTutorial">
-            <Grid>
-                <Rectangle Name="rectVoorbeeldCoin" Width="40" Fill="Gold" Visibility="Visible" Stroke="Black" Margin="10,10,708,112"/>
-                <Rectangle Name="rectVoorbeeldObstakel" Width="40" Fill="Red" Visibility="Visible" Stroke="Black" Margin="10,54,708,53" RenderTransformOrigin="0.365,0.502" />
-                <Rectangle Name="rectVoorbeeldPlayer" Width="40" Fill="Orange" Visibility="Visible" Stroke="Black" Margin="10,113,708,10" />
-                <Label Content="Dit is een coin, raap deze op om toe te voegen aan het coin totaal" Margin="65,10,0,102" FontSize="23"></Label>
-                <Label Content="Dit is een obstakel, raak deze niet aan!" Margin="65,64,0,47" FontSize="23"></Label>
-                <Label Content="Dit is de player, zorg dat hij niet doodgaat!" Margin="65,114,0,5" FontSize="23"></Label>
-            </Grid>
+            </GroupBox>
+            <Label Content="Van: Brecht Craeynest 1EL" Canvas.Left="634" Canvas.Top="382" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="WhiteSmoke"></Label>
+        </Canvas>
 
-        </GroupBox>
-        <Label Content="Van: Brecht Craeynest 1EL" Canvas.Left="634" Canvas.Top="382" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="WhiteSmoke"></Label>
         <Grid Name="grdHighscore" Visibility="Hidden">
             <Canvas Background="LightGray" Width="800" Height="450">
                 <Label Content="Geef naam in:" HorizontalAlignment="Center" Width="91" VerticalAlignment="Top" Canvas.Left="70" Canvas.Top="126"/>
@@ -59,12 +68,13 @@
                 <Label Content="Geef score in:" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Left="70" Canvas.Top="185"/>
                 <TextBox Name="txtbxScore" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" Canvas.Left="51" Canvas.Top="216"/>
                 <Button Content="Voeg toe aan list" Name="btnScoreToevoegen" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" Click="btnScoreToevoegen_Click" Canvas.Left="51" Canvas.Top="239" Background="AliceBlue" />
-                <ListBox Name="scoresList" HorizontalAlignment="Center" VerticalAlignment="Top" Width="250" Canvas.Left="260" Canvas.Top="81" Height="274"/>
+
                 <Label Content="Lijst met Highscores:" Canvas.Left="301" Canvas.Top="52" HorizontalAlignment="Left" VerticalAlignment="Center" Width="168" FontSize="16" FontWeight="Bold"/>
                 <Label Content="Highscore: 200" Canvas.Left="550" Canvas.Top="198" HorizontalAlignment="Left" VerticalAlignment="Center" Width="225" FontSize="14" Name="lblTopScore" Background="White"/>
-                <Label Content="Hoogste score allertijden:" Canvas.Left="574" Canvas.Top="161" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                <Label Content="Hoogste score allertijden:" Canvas.Left="574" Canvas.Top="161" FontSize="15"  HorizontalAlignment="Center" VerticalAlignment="Top"/>
                 <Button Content="Terug naar startscherm" Canvas.Left="198" Canvas.Top="360" HorizontalAlignment="Center" VerticalAlignment="Top" Width="374" Height="40" Background="AliceBlue" Name="btnTerugStartscherm" Click="btnTerugStartscherm_Click" />
             </Canvas>
         </Grid>
+        <ListBox Name="scoresList" HorizontalAlignment="Center" VerticalAlignment="Top" Width="250" Canvas.Left="260" Canvas.Top="90" Height="260" Visibility="Hidden"/>
     </Canvas>
 </Window>

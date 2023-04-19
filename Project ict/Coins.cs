@@ -6,26 +6,26 @@ using System.Threading.Tasks;
 
 namespace Project_ict
 {
-    internal class Coins
+    internal class Coins : Powerup
     {
-        int coins;
+        public override string Toevoegen()
+        {
+            // Roep de basisimplementatie van Toevoegen aan om de teller met één te verhogen
+            base.Toevoegen();
+            return count.ToString();
+        }
 
-        public string Toevoegen()
+        public override string Resetten()
         {
-            // zorg dat het commando coins.Toevoegen zorgt dat er een coin word bijgeteld.
-            coins++;
-            return coins.ToString();
+            // Roep de basisimplementatie van Resetten aan om de teller op nul te zetten
+            base.Resetten();
+            return count.ToString();
         }
-        public string Resetten()
+
+        public override string Tonen()
         {
-            // zorg dat het commando coins.Resetten coins op 0 zet.
-            coins = 0;
-            return coins.ToString();
-        }
-        public string Tonen()
-        {
-            // zorg dat het commando coins.Tonen het totaal terugstuurd.
-            return $"{coins}";
+            // Roep de basisimplementatie van Tonen aan om het totaal aantal power-ups te retourneren
+            return base.Tonen();
         }
     }
 }
