@@ -7,22 +7,27 @@
         mc:Ignorable="d"
  Title="Project ICT" Height="450" Width="800" ResizeMode="CanMinimize" Closed="Window_Closed">
     <Canvas Name="myCanvas" Focusable="True" KeyDown="Canvas_KeyDown" KeyUp="Canvas_KeyUp" Background="LightGray">
+        <GroupBox Name="grpbxStartspel" Visibility="Hidden">
+            <Canvas>
+                <Rectangle Name="rectAchtergrond" Height="400" Width="1262" Fill="Aquamarine" />
+                <Rectangle Name="rectAchtergrond2" Height="400" Width="1262" Fill="LightGreen" Canvas.Left="1262" />
 
-        <Rectangle Name="rectAchtergrond" Height="400" Width="1262" Fill="Aquamarine" Visibility="Hidden"/>
-        <Rectangle Name="rectAchtergrond2" Height="400" Width="1262" Fill="LightGreen" Canvas.Left="1262" Visibility="Hidden"/>
+                <Rectangle Name="rectGrond" Height="32" Width="800" Fill="Black" Canvas.Top="387" Canvas.Left="-10" />
 
-        <Rectangle Name="rectGrond" Height="32" Width="800" Fill="Black" Canvas.Top="387" Canvas.Left="0" Visibility="Hidden"/>
+                <Rectangle Name="rectPlayer" Height="85" Width="60" Fill="Orange" Canvas.Top="151" Canvas.Left="110"  />
+                <Rectangle Name="rectCoin" Height="40" Width="40" Fill="Gold" Canvas.Top="320" Canvas.Left="300"  />
+                <Rectangle Name="rectCoin2" Height="40" Width="40" Fill="Gold" Canvas.Top="320" Canvas.Left="450"  />
 
-        <Rectangle Name="rectPlayer" Height="99" Width="67" Fill="Orange" Canvas.Top="151" Canvas.Left="110" Visibility="Hidden" />
-        <Rectangle Name="rectCoin" Height="40" Width="40" Fill="Gold" Canvas.Top="320" Canvas.Left="300" Visibility="Hidden" />
-        <Rectangle Name="rectCoin2" Height="40" Width="40" Fill="Gold" Canvas.Top="320" Canvas.Left="450" Visibility="Hidden" />
+                <Rectangle Name="rectObstakel" Height="178" Width="50" Fill="Red" Canvas.Top="320" Canvas.Left="721"  />
 
-        <Rectangle Name="rectObstakel" Height="178" Width="50" Fill="Red" Canvas.Top="320" Canvas.Left="721" Visibility="Hidden" />
+                <Label Name="lblScoreText" FontSize="22" FontWeight="Bold" Content="Score: 0" />
+                <Label Name="lblCoinsText" FontSize="22" FontWeight="Bold" Content="Coins: 0" Canvas.Top="30" />
+                <Label Name="lblLevens" FontSize="22" FontWeight="Bold" Content="Levens: 0" Canvas.Top="55" />
+                <Label Name="lblGameOver" FontSize="60" FontWeight="Bold" Content="GAME OVER" Canvas.Left="221" Canvas.Top="180" />
 
-        <Label Name="lblScoreText" FontSize="22" FontWeight="Bold" Content="Score: 0" Visibility="Hidden"/>
-        <Label Name="lblCoinsText" FontSize="22" FontWeight="Bold" Content="Coins: 0" Canvas.Top="30" Visibility="Hidden"/>
-        <Label Name="lblLevens" FontSize="22" FontWeight="Bold" Content="Levens: 0" Canvas.Top="55" Visibility="Hidden"/>
-        <Label Name="lblGameOver" FontSize="60" FontWeight="Bold" Content="GAME OVER" Canvas.Left="221" Canvas.Top="180" Visibility="Hidden"/>
+            </Canvas>
+        </GroupBox>
+
 
         <GroupBox Header="Kies je poort" HorizontalAlignment="Left" Canvas.Left="10" Width="770" VerticalAlignment="Top" Height="56" Canvas.Top="10" Name="gbxPoort">
             <ComboBox Name="cbxPortName" SelectionChanged="cbxPortName_SelectionChanged" Visibility="Visible"></ComboBox>
@@ -30,7 +35,7 @@
         <GroupBox Header="Start het spel" HorizontalAlignment="Center" Canvas.Left="10" Width="770" VerticalAlignment="Top" Height="97" Canvas.Top="66" Name="gbxStart">
             <StackPanel>
                 <Button Name="btnStartGame" Click="Startgame_Click" Content="Start Game" FontSize="25"></Button>
-                <Button Name="btnTestSerial" Click="btnTestSerial_Click" Content="Test Serial" FontSize="25"></Button>
+                <Button Name="btnHighscores" Click="btnHighscores_Click" Content="Bekijk Highscores" FontSize="25"></Button>
             </StackPanel>
         </GroupBox>
 
@@ -44,8 +49,22 @@
                 <Label Content="Dit is een obstakel, raak deze niet aan!" Margin="65,64,0,47" FontSize="23"></Label>
                 <Label Content="Dit is de player, zorg dat hij niet doodgaat!" Margin="65,114,0,5" FontSize="23"></Label>
             </Grid>
-            
+
         </GroupBox>
         <Label Content="Van: Brecht Craeynest 1EL" Canvas.Left="634" Canvas.Top="382" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="WhiteSmoke"></Label>
+        <Grid Name="grdHighscore" Visibility="Hidden">
+            <Canvas Background="LightGray" Width="800" Height="450">
+                <Label Content="Geef naam in:" HorizontalAlignment="Center" Width="91" VerticalAlignment="Top" Canvas.Left="70" Canvas.Top="126"/>
+                <TextBox Name="txtbxNaam" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="120" Canvas.Left="51" Canvas.Top="152"/>
+                <Label Content="Geef score in:" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Left="70" Canvas.Top="185"/>
+                <TextBox Name="txtbxScore" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" Canvas.Left="51" Canvas.Top="216"/>
+                <Button Content="Voeg toe aan list" Name="btnScoreToevoegen" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" Click="btnScoreToevoegen_Click" Canvas.Left="51" Canvas.Top="239" Background="AliceBlue" />
+                <ListBox Name="scoresList" HorizontalAlignment="Center" VerticalAlignment="Top" Width="250" Canvas.Left="260" Canvas.Top="81" Height="274"/>
+                <Label Content="Lijst met Highscores:" Canvas.Left="301" Canvas.Top="52" HorizontalAlignment="Left" VerticalAlignment="Center" Width="168" FontSize="16" FontWeight="Bold"/>
+                <Label Content="Highscore: 200" Canvas.Left="550" Canvas.Top="198" HorizontalAlignment="Left" VerticalAlignment="Center" Width="225" FontSize="14" Name="lblTopScore" Background="White"/>
+                <Label Content="Hoogste score allertijden:" Canvas.Left="574" Canvas.Top="161" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                <Button Content="Terug naar startscherm" Canvas.Left="198" Canvas.Top="360" HorizontalAlignment="Center" VerticalAlignment="Top" Width="374" Height="40" Background="AliceBlue" Name="btnTerugStartscherm" Click="btnTerugStartscherm_Click" />
+            </Canvas>
+        </Grid>
     </Canvas>
 </Window>
